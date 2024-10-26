@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Đếm các cặp số có tổng chia hết cho k</title>
+</head>
+<body>
+<button onclick="bai3()">Click Me</button>
+<script>
+  function bai3(){
+    let n = +prompt("Nhập số lượng phần tử của mảng không quá 50:");
+    while (isNaN(n) || n > 50 || n <= 0) {
+      n = +prompt("Số lượng phần tử không quá 50:");
+    }
+
+    let arr = [];
+    for (let i = 0; i < n; i++) {
+      arr.push(+prompt(`Nhập vào phần tử thứ ${i + 1}:`));
+    }
+    document.write(" Mảng ban đầu [" + arr +"]" + "<br>");
+
+    let k = +prompt("Nhập số nguyên dương k:");
+    while (isNaN(k) || k <= 0) {
+      k = +prompt("Giá trị k không <= 0:");
+    }
+    let count = 0;
+    document.write("Các cặp số có tổng chia hết cho " + k + ":<br>");
+    for (let i = 0; i < arr.length; i++) {
+      for (let j = i + 1; j < arr.length; j++) {
+        if ((arr[i] + arr[j]) % k === 0) {
+          document.write(`(${arr[i]}, ${arr[j]})<br>`);
+          count++;
+        }
+      }
+    }
+    document.write("Các cặp có tổng chia hết cho " + k + ": " + count);
+  }
+</script>
+</body>
+</html>

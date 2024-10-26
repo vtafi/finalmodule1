@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Làm Tròn Điểm</title>
+</head>
+<body>
+<script>
+  function lamTronDiem(diem) {
+    if (isNaN(diem) || diem > 100 || diem < 0){
+      document.write("Điểm không hợp lệ. Vui lòng nhập điểm trong khoảng từ 0 đến 100.")
+    }
+    if (diem < 50) {
+      document.write("Điểm sau khi làm tròn (trượt): " + diem + "<br>");
+      return;
+    }
+    if (diem < 48) {
+      document.write("Điểm sau khi làm tròn (trượt) : " + diem +"<br>");
+      return;
+    }
+    let boi5TiepTheo = diem;
+    if (diem % 5 !== 0) {
+      boi5TiepTheo = diem + (5 - diem % 5);
+    }
+    if (boi5TiepTheo - diem < 3) {
+      document.write("Điểm sau khi làm tròn (qua): " + boi5TiepTheo + "<br>");
+    } else {
+      document.write("Điểm sau khi làm tròn (qua): " + diem + "<br>");
+    }
+  }
+  lamTronDiem(48)
+  lamTronDiem(50)
+  lamTronDiem(84)
+</script>
+</body>
+</html>
